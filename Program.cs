@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace _31._08._2021
 {
@@ -6,19 +6,21 @@ namespace _31._08._2021
     {
         static void Main(string[] args)
         {
-            Player player = new Player();
-            Play(player);
+            Player playing = new Player();
+            Console.Write("pop music:");
+            playing.play();
+            Console.Write("pop music:");
+            playing.pause();
+            Console.Write("pop music:");
+            playing.stop();
+            Console.Write("video:");
+            playing.Record();
+            Console.Write("video:");
+            playing.Pause();
+            Console.Write("video:");
+            playing.Stop();
         }
-        public static void Play(IpIr player)
-        {
-            player.play();
-            player.pause();
-            player.stop();
-            player.record();
-            player.pause2();
-            player.stop2();
-
-        }
+      
     }    
         interface  IPlayable
         {
@@ -29,15 +31,11 @@ namespace _31._08._2021
         }
         interface IRecodable
         {
-           void record();
-           void pause2(); 
-           void stop2();
+           void Record();
+           void Pause(); 
+           void Stop();
         }
-        interface IpIr : IPlayable, IRecodable
-        {
-
-        }
-        class Player : IpIr
+        class Player : IPlayable, IRecodable
         {
             public void play()
             {
@@ -51,17 +49,17 @@ namespace _31._08._2021
             {
              Console.WriteLine("Stop");       
             }
-            public void record()
+            public void Record()
             {
               Console.WriteLine("Record");
             }
-            public void pause2()
+            public void Pause()
             {
-               Console.WriteLine("Pause2");
+               Console.WriteLine("Pause");
             }
-            public void stop2()
+            public void Stop()
             {
-             Console.WriteLine("Stop2");       
+             Console.WriteLine("Stop");       
             }
             
         }
